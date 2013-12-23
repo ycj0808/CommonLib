@@ -4,4 +4,11 @@
     <string name="pull_to_refresh_release_label">释放刷新……</string>
     <string name="pull_to_refresh_refreshing_label">加载中……</string>
     <string name="pull_to_refresh_tap_label">点击刷新……</string>
+    
+     <!-- 二维码 -->
+    <string name="scan_title">二维码扫描</string>
+    <string name="tip_scan1">请将二维码完整清晰地置</string>
+	<string name="tip_scan2">于取景框内即可自动扫描</string>
+	<string name="btn_scan_cancel">取    消</string>
+    
 </resources>

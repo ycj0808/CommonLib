@@ -323,4 +323,8 @@ public final class CameraManager {
 		return context;
 	}
 
+	public Camera getCamera() {
+		return camera;
+	}
+	
 }

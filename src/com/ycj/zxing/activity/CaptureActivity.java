@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Bitmap;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
@@ -21,6 +23,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.ycj.common.R;
@@ -34,7 +38,7 @@ import com.ycj.zxing.view.ViewfinderView;
  * @author yangchj
  * @date 2013-4-28 上午10:30:58
  */
-public class CaptureActivity extends Activity implements Callback {
+public abstract class CaptureActivity extends SherlockActivity implements Callback {
 
 	private CaptureActivityHandler handler;
 	private ViewfinderView viewfinderView;
@@ -48,19 +52,65 @@ public class CaptureActivity extends Activity implements Callback {
 	private boolean vibrate;
 	private Button cancelScanButton;
 	private static final int RESULT_SCANNER_OK=2;//扫描二维码成功
+//	private ImageView img_flash;
+	private Camera camera;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.camera);
+		setContentView(R.layout.layout_camera);
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(false);
+//		actionBar.setIcon(R.drawable.logo);
+		
 		//ViewUtil.addTopView(getApplicationContext(), this, R.string.scan_card);
 		CameraManager.init(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		cancelScanButton = (Button) this.findViewById(R.id.btn_cancel_scan);
+//		img_flash=(ImageView) this.findViewById(R.id.img_flash);
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
+		//setOnClickListener();
 	}
+	
+	/*protected void setOnClickListener(){
+		img_flash.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (camera == null) {
+					camera=CameraManager.get().getCamera();
+				}
+				camera.startPreview();
+				Parameters parameters = camera.getParameters();
+				// 判断闪光灯当前状态
+				if (Parameters.FLASH_MODE_OFF.equals(parameters.getFlashMode())) {
+					turnOn(parameters);
+					img_flash.setBackgroundResource(R.drawable.light_close);
+				} else if (Parameters.FLASH_MODE_TORCH.equals(parameters.getFlashMode())) {
+					turnOff(parameters);
+					img_flash.setBackgroundResource(R.drawable.light_open);
+				}
+
+			}
+		});
+	}*/
+	/**
+	 * 打开闪光灯
+	 * @param parameters
+	 */
+	/*private void turnOn(Parameters parameters) {
+		parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
+		camera.setParameters(parameters);
+	}*/
+	/**
+	 * 关闭闪关灯
+	 * @param parameters
+	 */
+	/*private void turnOff(Parameters parameters) {
+		parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
+		camera.setParameters(parameters);
+	}*/
 
 	@Override
 	protected void onResume() {
@@ -225,5 +275,10 @@ public class CaptureActivity extends Activity implements Callback {
 			mediaPlayer.seekTo(0);
 		}
 	};
+	
+	public Camera getCamera() {
+		return camera;
+	}
+
 
 }

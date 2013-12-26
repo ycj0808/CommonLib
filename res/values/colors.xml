@@ -16,6 +16,13 @@
 -->
 <resources>
 
+    <!-- 下拉刷新 -->
+    <color name="dark_slate_gray">#2F4F4F</color>
+	<color name="gray_2">#AFAFAF</color>
+	<color name="gray_1">#C0C0C0</color>
+    <color name="black">#000000</color>
+    
+    
     <color name="actionbar_separator">#8B1A1A</color>
     <color name="actionbar_title">#FFFFFF</color>
     <color name="actionbar_background_start">#8B1A1A</color>

@@ -23,8 +23,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
+//import com.actionbarsherlock.app.ActionBar;
+//import com.actionbarsherlock.app.SherlockActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.ycj.common.R;
@@ -38,7 +38,7 @@ import com.ycj.zxing.view.ViewfinderView;
  * @author yangchj
  * @date 2013-4-28 上午10:30:58
  */
-public abstract class CaptureActivity extends SherlockActivity implements Callback {
+public abstract class CaptureActivity extends Activity implements Callback {
 
 	private CaptureActivityHandler handler;
 	private ViewfinderView viewfinderView;
@@ -60,8 +60,8 @@ public abstract class CaptureActivity extends SherlockActivity implements Callba
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_camera);
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(false);
+//		ActionBar actionBar = getSupportActionBar();
+//		actionBar.setDisplayHomeAsUpEnabled(false);
 //		actionBar.setIcon(R.drawable.logo);
 		
 		//ViewUtil.addTopView(getApplicationContext(), this, R.string.scan_card);

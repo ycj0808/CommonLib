@@ -3,6 +3,8 @@ import android.app.Activity;
 import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 /**
@@ -103,4 +105,97 @@ public class ToastUtils {
 		if (IsThread)
 			Looper.loop();
 	}
+	
+	/**
+	 * 显示Toast,直接传入字符串
+	 * @param activity
+	 * @param content
+	 */
+	public static void showToast(final Activity activity, final String content) {
+        /*activity.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                Toast toast = Toast.makeText(activity, content, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });*/
+		showToast(activity,content,Gravity.CENTER,0,0);
+    }
+	/**
+	 * 显示Toast,内容来自资源文件
+	 * @param activity
+	 * @param resId
+	 */
+    public static void showToast(final Activity activity, final int resId) {
+        /*activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast toast = Toast.makeText(activity, activity.getString(resId),
+                        Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });*/
+    	showToast(activity,activity.getString(resId),Gravity.CENTER,0,0);
+    }
+    
+    /**
+     * 显示Toast
+     * @param activity
+     * @param content
+     * @param gravity
+     * @param xOffset
+     * @param yOffset
+     */
+    public static void showToast(final Activity activity, final String content,final int gravity, final int xOffset, final int yOffset){
+    	 activity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 Toast toast = Toast.makeText(activity, content, Toast.LENGTH_SHORT);
+                 toast.setGravity(gravity, xOffset, yOffset);
+                 toast.show();
+             }
+         });
+    }
+    /**
+     * 显示自定义的Toast
+     * @param activity
+     * @param view
+     * @param content
+     * @param gravity
+     * @param xOffset
+     * @param yOffset
+     */
+    public static void showToast(final Activity activity,final View view, final String content,final int gravity, final int xOffset, final int yOffset){
+    	 activity.runOnUiThread(new Runnable() {
+             @Override
+             public void run() {
+                 Toast toast = Toast.makeText(activity, content, Toast.LENGTH_SHORT);
+                 toast.setGravity(gravity, xOffset, yOffset);
+                 toast.setView(view);
+                 toast.show();
+             }
+         });
+    }
+    /**
+     * 显示带有图片及文字的Toast
+     * @param activity
+     * @param view
+     * @param content
+     * @param gravity
+     * @param xOffset
+     * @param yOffset
+     */
+    public static void showToast(final Activity activity,final ImageView view, final String content,final int gravity, final int xOffset, final int yOffset){
+   	 activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast toast = Toast.makeText(activity, content, Toast.LENGTH_SHORT);
+                toast.setGravity(gravity, xOffset, yOffset);
+                LinearLayout toastView = (LinearLayout) toast.getView();
+                toastView.addView(view, 0);
+                toast.show();
+            }
+        });
+   }
 }

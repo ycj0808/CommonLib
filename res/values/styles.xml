@@ -1,21 +1,26 @@
 <resources>
-
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+   
+    <!-- switch -->
+	 <style name="switch_optimus" parent="android:Widget.CompoundButton">
+        <item name="thumb">@drawable/switch_inner</item>
+        <item name="track">@drawable/skin_switch_track</item>
+        <item name="textOn">@string/textOn</item>
+        <item name="textOff">@string/textOff</item>
+        <item name="thumbTextPadding">12.0dip</item>
+        <item name="switchTextAppearance">@style/TextAppearanceSwitch</item>
+        <item name="switchMinWidth">75.0dip</item>
+        <item name="switchPadding">16.0dip</item>
     </style>
-
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    
+    <!-- switch -->
+    <style name="TextAppearanceSwitch" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColorHighlight">?android:textColorHighlight</item>
+        <item name="android:textColorHint">?android:textColorHint</item>
+        <item name="android:textColorLink">?android:textColorLink</item>
     </style>
-
 
 </resources>

@@ -11,4 +11,9 @@
 	<string name="tip_scan2">于取景框内即可自动扫描</string>
 	<string name="btn_scan_cancel">取    消</string>
     <string name="album">相册</string>
+    
+    <!-- switch -->
+    <string name="textOn">开</string>
+    <string name="textOff">关</string>
+    
 </resources>

@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -53,9 +54,12 @@ public class HttpUtils {
 			//设置httpPost请求参数 
             httpPost.setEntity(new UrlEncodedFormEntity(pairs, HTTP.UTF_8)); 
             httpResponse =httpClient.execute(httpPost); 
-            if (httpResponse.getStatusLine().getStatusCode() == 200) { 
+            int code=httpResponse.getStatusLine().getStatusCode();
+            if (code == 200) { 
             	result = EntityUtils.toString(httpResponse.getEntity()); 
             }
+            result = EntityUtils.toString(httpResponse.getEntity()); 
+            
 		}catch(ConnectTimeoutException e){//超时异常
 			e.printStackTrace();
 		}catch(ClientProtocolException e){//不符合http协议
@@ -85,7 +89,7 @@ public class HttpUtils {
 			String urlName = url + "?" + params;
 			URL realUrl = new URL(urlName);
 			// 打开和URL之间的连接
-			URLConnection conn = realUrl.openConnection();
+			HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
 			// 设置通用的请求属性
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
@@ -99,6 +103,10 @@ public class HttpUtils {
 			for (String key : map.keySet()) {
 				System.out.println(key + "--->" + map.get(key));
 			}
+			int code=conn.getResponseCode();
+			if(code==201){
+				result=conn.getHeaderField("jsessionid");
+			}
 			// 定义BufferedReader输入流来读取URL的响应
 			in = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
@@ -106,6 +114,7 @@ public class HttpUtils {
 			while ((line = in.readLine()) != null) {
 				result += "\n" + line;
 			}
+			LogUtils.i(result);
 		} catch (Exception e) {
 			System.out.println("发送GET请求出现异常！" + e);
 			e.printStackTrace();

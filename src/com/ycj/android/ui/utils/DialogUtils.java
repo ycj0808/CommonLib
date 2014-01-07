@@ -3,28 +3,30 @@ package com.ycj.android.ui.utils;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.View;
 
 /**
  * 显示对话框的工具类
  * @author yangchj
  * @date 2013-12-18 上午10:50:00
  */
+@SuppressLint("NewApi")
 public class DialogUtils {
 
-	
-	
 	/**
      * Show Alert Dialog with resource id.
      * @param context Activity context.
      * @param titleId title id
      * @param messageId message id
      */
-    public static void showAlert(Context context, int titleId, int messageId) {
+    @SuppressLint("NewApi")
+	public static void showAlert(Context context, int titleId, int messageId) {
         Dialog dlg = new AlertDialog.Builder(context)
             .setIconAttribute(android.R.attr.alertDialogIcon)
             .setTitle(titleId)
@@ -40,7 +42,8 @@ public class DialogUtils {
      * @param title Title
      * @param message Message
      */
-    public static void showAlert(Context context, String title, String message) {
+    @SuppressLint("NewApi")
+	public static void showAlert(Context context, String title, String message) {
         Dialog dlg = new AlertDialog.Builder(context)
             .setIconAttribute(android.R.attr.alertDialogIcon)
             .setTitle(title)
@@ -155,5 +158,21 @@ public class DialogUtils {
 		ad.setCancelable(false); 
 		Dialog alert = ad.create();
 		alert.show();
+	}
+	/**
+	  * @Title: 自定义的带进度条的dialog
+	  * @Description: TODO
+	  * @param @param mContext
+	  * @param @param view
+	  * @param @return    设定文件
+	  * @return Dialog    返回类型
+	  * @throws
+	 */
+	public static Dialog showProgressBar(Context mContext,View view){
+		Dialog  mDialog = new AlertDialog.Builder(mContext).create();
+		mDialog.setCanceledOnTouchOutside(false);
+    	mDialog.show();
+    	mDialog.setContentView(view);
+    	return mDialog;
 	}
 }

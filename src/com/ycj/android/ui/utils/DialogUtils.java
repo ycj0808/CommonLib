@@ -12,9 +12,9 @@ import android.content.DialogInterface;
 import android.view.View;
 
 /**
- * ÏÔÊ¾¶Ô»°¿òµÄ¹¤¾ßÀà
+ * æ˜¾ç¤ºå¯¹è¯æ¡†çš„å·¥å…·ç±»
  * @author yangchj
- * @date 2013-12-18 ÉÏÎç10:50:00
+ * @date 2013-12-18 ä¸Šåˆ10:50:00
  */
 @SuppressLint("NewApi")
 public class DialogUtils {
@@ -101,11 +101,11 @@ public class DialogUtils {
     }
     
 	/**
-	 * ÆÕÍ¨¶Ô»°¿ò
-	 * @param context  ÉÏÏÂÎÄ¶ÔÏó
-	 * @param Title  ±êÌâ
-	 * @param Msg ÌáÊ¾µÄÄÚÈİ
-	 * @param Ico ÏÔÊ¾µÄ×ÊÔ´Í¼±ê
+	 * æ™®é€šå¯¹è¯æ¡†
+	 * @param context  ä¸Šä¸‹æ–‡å¯¹è±¡
+	 * @param Title  æ ‡é¢˜
+	 * @param Msg æç¤ºçš„å†…å®¹
+	 * @param Ico æ˜¾ç¤ºçš„èµ„æºå›¾æ ‡
 	 */
 	public static void Show(Context context, String Title, String Msg, int Ico) {
 		Builder ad = new AlertDialog.Builder(context).setTitle(Title).setMessage(Msg).setIcon(Ico);
@@ -115,13 +115,13 @@ public class DialogUtils {
 	}
 	
 	/**
-	 *  ÁĞ±íÏÔÊ¾µÄ¶Ô»°¿ò
+	 *  åˆ—è¡¨æ˜¾ç¤ºçš„å¯¹è¯æ¡†
 	 *  
-	  * @param context  ÉÏÏÂÎÄ¶ÔÏó
-	 * @param Title  ±êÌâ
-	 * @param Ico ÏÔÊ¾µÄ×ÊÔ´Í¼±ê
-	 * @param Array_Frut  Ñ¡ÏîÁĞ±í¼¯ºÏ
-	 * @param onClick Ñ¡ÔñÁĞ±íµÄÊÂ¼ş
+	  * @param context  ä¸Šä¸‹æ–‡å¯¹è±¡
+	 * @param Title  æ ‡é¢˜
+	 * @param Ico æ˜¾ç¤ºçš„èµ„æºå›¾æ ‡
+	 * @param Array_Frut  é€‰é¡¹åˆ—è¡¨é›†åˆ
+	 * @param onClick é€‰æ‹©åˆ—è¡¨çš„äº‹ä»¶
 	 */
 	public static void Show(Context context,String Title,int Ico,String[] Array_Frut,DialogInterface.OnClickListener onClick)
 	{
@@ -132,13 +132,13 @@ public class DialogUtils {
 	}
 	  
 	/**
-	 * ´ø°´Å¥µÄ¶Ô»°¿ò
+	 * å¸¦æŒ‰é’®çš„å¯¹è¯æ¡†
 	 * 
-	 * @param context  ÉÏÏÂÎÄ¶ÔÏó
-	 * @param Title  ±êÌâ
-	 * @param Msg ÌáÊ¾µÄÄÚÈİ
-	 * @param Ico ÏÔÊ¾µÄ×ÊÔ´Í¼±ê
-	 * @param onClick °´Å¥¼¯ºÏ(×î¶à¿ÉÏÔÊ¾3¸ö°´Å¥)
+	 * @param context  ä¸Šä¸‹æ–‡å¯¹è±¡
+	 * @param Title  æ ‡é¢˜
+	 * @param Msg æç¤ºçš„å†…å®¹
+	 * @param Ico æ˜¾ç¤ºçš„èµ„æºå›¾æ ‡
+	 * @param onClick æŒ‰é’®é›†åˆ(æœ€å¤šå¯æ˜¾ç¤º3ä¸ªæŒ‰é’®)
 	 */
 	public static void Show(Context context, String Title, String Msg,int Ico,HashMap<String, DialogInterface.OnClickListener> onClick) {
 		Builder ad =new AlertDialog.Builder(context).setTitle(Title).setMessage(Msg).setIcon(Ico);
@@ -160,12 +160,12 @@ public class DialogUtils {
 		alert.show();
 	}
 	/**
-	  * @Title: ×Ô¶¨ÒåµÄ´ø½ø¶ÈÌõµÄdialog
+	  * @Title: è‡ªå®šä¹‰çš„å¸¦è¿›åº¦æ¡çš„dialog
 	  * @Description: TODO
 	  * @param @param mContext
 	  * @param @param view
-	  * @param @return    Éè¶¨ÎÄ¼ş
-	  * @return Dialog    ·µ»ØÀàĞÍ
+	  * @param @return    è®¾å®šæ–‡ä»¶
+	  * @return Dialog    è¿”å›ç±»å‹
 	  * @throws
 	 */
 	public static Dialog showProgressBar(Context mContext,View view){

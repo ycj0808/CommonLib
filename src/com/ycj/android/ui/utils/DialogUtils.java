@@ -16,7 +16,7 @@ import android.view.View;
  * @author yangchj
  * @date 2013-12-18 上午10:50:00
  */
-@SuppressLint("NewApi")
+@SuppressLint("NewApi")   
 public class DialogUtils {
 
 	/**

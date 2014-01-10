@@ -171,7 +171,7 @@ public class DialogUtils {
 	public static Dialog showProgressBar(Context mContext,View view){
 		Dialog  mDialog = new AlertDialog.Builder(mContext).create();
 		mDialog.setCanceledOnTouchOutside(false);
-    	mDialog.show();
+//    	mDialog.show();
     	mDialog.setContentView(view);
     	return mDialog;
 	}

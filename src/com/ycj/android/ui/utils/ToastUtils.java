@@ -143,10 +143,24 @@ public class ToastUtils {
 		 */
 		showToast(activity, activity.getString(resId), Gravity.CENTER, 0, 0);
 	}
+	/**
+	  * @Title: 显示Toast,内容来自资源文件
+	  * @Description: TODO
+	  * @param @param activity
+	  * @param @param resId
+	  * @param @param gravity
+	  * @param @param xOffset
+	  * @param @param yOffset    设定文件
+	  * @return void    返回类型
+	  * @throws
+	  */
+	public static void showToast(final Activity activity, final int resId,
+			final int gravity, final int xOffset, final int yOffset) {
+		showToast(activity, activity.getString(resId), gravity, xOffset, yOffset);
+	}
 
 	/**
 	 * 显示Toast
-	 * 
 	 * @param activity
 	 * @param content
 	 * @param gravity
@@ -216,16 +230,17 @@ public class ToastUtils {
 			}
 		});
 	}
+
 	/**
-	  * @Title: 自定义显示图片和文字
-	  * @Description: TODO
-	  * @param @param activity
-	  * @param @param view
-	  * @param @param content
-	  * @param @param gravity    设定文件
-	  * @return void    返回类型
-	  * @throws
-	  */
+	 * @Title: 自定义显示图片和文字
+	 * @Description: TODO
+	 * @param @param activity
+	 * @param @param view
+	 * @param @param content
+	 * @param @param gravity 设定文件
+	 * @return void 返回类型
+	 * @throws
+	 */
 	public static void showToast(final Activity activity, final ImageView view,
 			final String content, int gravity) {
 		Toast toast = Toast.makeText(activity, content, Toast.LENGTH_SHORT);

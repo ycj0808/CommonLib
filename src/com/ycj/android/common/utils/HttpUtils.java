@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+﻿package com.ycj.android.common.utils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

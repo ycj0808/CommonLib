@@ -1,13 +1,13 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.util.Hashtable;
 
 import android.util.Log;
 /**
  * @ClassName: CLogger
- * @Description: TODO(¶ÔandroidÖĞ´òÓ¡ÈÕÖ¾µÄ·â×°Àà)
+ * @Description: TODO(å¯¹androidä¸­æ‰“å°æ—¥å¿—çš„å°è£…ç±»)
  * @author yangchj
- * @date 2013-5-3 ÉÏÎç9:17:15
+ * @date 2013-5-3 ä¸Šåˆ9:17:15
  */
 public class CLogger  {
 	

@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,15 +12,15 @@ import org.json.JSONObject;
 
 /**
  * @ClassName: JsonUtils
- * @Description: TODO(jsonÊı¾İ´¦Àí¹¤¾ßÀà)
+ * @Description: TODO(jsonæ•°æ®å¤„ç†å·¥å…·ç±»)
  * @author yangchj
- * @date 2013-9-15 ÏÂÎç9:18:19
+ * @date 2013-9-15 ä¸‹åˆ9:18:19
  */
 public class JsonUtils {
 	/**
 	 * @Title: getListMaps
-	 * @Description: TODO(¶ÔList<Map<String,Object>>ĞÍµÄÊı¾İµÄ½âÎö)
-	 * @return List<Map<String,Object>>    ·µ»ØÀàĞÍ
+	 * @Description: TODO(å¯¹List<Map<String,Object>>å‹çš„æ•°æ®çš„è§£æ)
+	 * @return List<Map<String,Object>>    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static List<Map<String,Object>> getListMaps(String key,String jsonStr,JSONObject obj){
@@ -49,8 +49,8 @@ public class JsonUtils {
 	}
 	/**
 	 * @Title: getListStr
-	 * @Description: TODO(¶ÔList<String>ĞÍµÄÊı¾İµÄ½âÎö)
-	 * @return List<String>    ·µ»ØÀàĞÍ
+	 * @Description: TODO(å¯¹List<String>å‹çš„æ•°æ®çš„è§£æ)
+	 * @return List<String>    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static List<String> getListStr(String key,String jsonStr){

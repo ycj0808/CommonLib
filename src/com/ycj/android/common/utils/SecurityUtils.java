@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -13,7 +13,7 @@ import android.annotation.SuppressLint;
 import android.util.Base64;
 
 /**
- * °²È«Àà·½·¨µÄ´¦Àí·½·¨
+ * å®‰å…¨ç±»æ–¹æ³•çš„å¤„ç†æ–¹æ³•
  * 
  * @author yangchj
  */
@@ -21,31 +21,31 @@ public class SecurityUtils {
 	
 	private static final int BUFFER_SIZE = 1024;
 	/**
-	 * ¶Ô×Ö·û´®½øĞĞBase64±àÂë
+	 * å¯¹å­—ç¬¦ä¸²è¿›è¡ŒBase64ç¼–ç 
 	 * 
 	 * @param content
-	 *            ĞèÒª±àÂëµÄµÄ×Ö·û
-	 * @return ·µ»Ø±àÂë³É¹¦ºóµÄ×Ö·û´®
+	 *            éœ€è¦ç¼–ç çš„çš„å­—ç¬¦
+	 * @return è¿”å›ç¼–ç æˆåŠŸåçš„å­—ç¬¦ä¸²
 	 */
 	@SuppressLint("NewApi")
 	public static String base64(String content) {
 		try {
 			content = Base64.encodeToString(content.getBytes("utf-8"),
-					Base64.DEFAULT); // ¶Ô×Ö·û´®½øĞĞBase64±àÂë
-			content = StrEncoder(content, "utf-8"); // ¶Ô×Ö·û´®½øĞĞURL±àÂë
+					Base64.DEFAULT); // å¯¹å­—ç¬¦ä¸²è¿›è¡ŒBase64ç¼–ç 
+			content = StrEncoder(content, "utf-8"); // å¯¹å­—ç¬¦ä¸²è¿›è¡ŒURLç¼–ç 
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace(); // Êä³öÒì³£ĞÅÏ¢
+			e.printStackTrace(); // è¾“å‡ºå¼‚å¸¸ä¿¡æ¯
 		}
 		return content;
 	}
 
 	/**
-	 * ¶ÔURLµÄ×Ö·û´®½øĞĞ±àÂë
+	 * å¯¹URLçš„å­—ç¬¦ä¸²è¿›è¡Œç¼–ç 
 	 * 
 	 * @param content
-	 *            ĞèÒª±àÂëµÄ×Ö·û´®
+	 *            éœ€è¦ç¼–ç çš„å­—ç¬¦ä¸²
 	 * @param charset
-	 *            ĞèÒª±àÂëµÄÀàĞÍ Èç:utf-8,gb2312
+	 *            éœ€è¦ç¼–ç çš„ç±»å‹ å¦‚:utf-8,gb2312
 	 * @return
 	 */
 	public static String StrEncoder(String str, String charset) {
@@ -59,12 +59,12 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * ¶ÔURLµÄ×Ö·û´®½øĞĞ½âÂë
+	 * å¯¹URLçš„å­—ç¬¦ä¸²è¿›è¡Œè§£ç 
 	 * 
 	 * @param content
-	 *            ĞèÒª½âÂëµÄ×Ö·û´®
+	 *            éœ€è¦è§£ç çš„å­—ç¬¦ä¸²
 	 * @param charset
-	 *            ĞèÒª±àÂëµÄÀàĞÍ Èç:utf-8,gb2312
+	 *            éœ€è¦ç¼–ç çš„ç±»å‹ å¦‚:utf-8,gb2312
 	 * @return
 	 */
 	public static String StrDecoder(String str, String charset) {
@@ -78,7 +78,7 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * BASE64 ¼ÓÃÜ
+	 * BASE64 åŠ å¯†
 	 * 
 	 * @param str
 	 * @return
@@ -89,7 +89,7 @@ public class SecurityUtils {
 		}
 		try {
 			byte[] encode = str.getBytes("UTF-8");
-			// base64 ¼ÓÃÜ
+			// base64 åŠ å¯†
 			return new String(Base64.encode(encode, 0, encode.length,
 					Base64.DEFAULT), "UTF-8");
 
@@ -101,7 +101,7 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * BASE64 ½âÃÜ
+	 * BASE64 è§£å¯†
 	 * 
 	 * @param str
 	 * @return
@@ -112,7 +112,7 @@ public class SecurityUtils {
 		}
 		try {
 			byte[] encode = str.getBytes("UTF-8");
-			// base64 ½âÃÜ
+			// base64 è§£å¯†
 			return new String(Base64.decode(encode, 0, encode.length,
 					Base64.DEFAULT), "UTF-8");
 
@@ -124,7 +124,7 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * GZIP ¼ÓÃÜ
+	 * GZIP åŠ å¯†
 	 * 
 	 * @param str
 	 * @return
@@ -135,7 +135,7 @@ public class SecurityUtils {
 		}
 
 		try {
-			// gzipÑ¹Ëõ
+			// gzipå‹ç¼©
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			GZIPOutputStream gzip = new GZIPOutputStream(baos);
 			gzip.write(str.getBytes("UTF-8"));
@@ -144,7 +144,7 @@ public class SecurityUtils {
 			baos.flush();
 			baos.close();
 
-			// base64 ¼ÓÃÜ
+			// base64 åŠ å¯†
 			return encode;
 			// return new String(encode, "UTF-8");
 
@@ -158,7 +158,7 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * GZIP ½âÃÜ
+	 * GZIP è§£å¯†
 	 * 
 	 * @param str
 	 * @return
@@ -172,7 +172,7 @@ public class SecurityUtils {
 
 			byte[] decode = str.getBytes("UTF-8");
 
-			// gzip ½âÑ¹Ëõ
+			// gzip è§£å‹ç¼©
 			ByteArrayInputStream bais = new ByteArrayInputStream(decode);
 			GZIPInputStream gzip = new GZIPInputStream(bais);
 
@@ -203,7 +203,7 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * Ê®Áù½øÖÆ×Ö·û´® ×ª»»Îª byte[]
+	 * åå…­è¿›åˆ¶å­—ç¬¦ä¸² è½¬æ¢ä¸º byte[]
 	 * 
 	 * @param hexString
 	 *            the hex string
@@ -236,7 +236,7 @@ public class SecurityUtils {
 	}
 
 	/**
-	 * byte[] ×ª»»Îª Ê®Áù½øÖÆ×Ö·û´®
+	 * byte[] è½¬æ¢ä¸º åå…­è¿›åˆ¶å­—ç¬¦ä¸²
 	 * 
 	 * @param src
 	 * @return

@@ -1,15 +1,15 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.util.regex.Pattern;
 
 public class RegexUtils {
 
 	/**
-	 * @Title: ÑéÖ¤EmailµÄ¸ñÊ½
+	 * @Title: éªŒè¯Emailçš„æ ¼å¼
 	 * @Description: TODO
 	 * @param @param email
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkEmail(String email) {
@@ -18,11 +18,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤Éí·İÖ¤ºÅÂë
+	 * @Title: éªŒè¯èº«ä»½è¯å·ç 
 	 * @Description: TODO
 	 * @param @param idCard
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkIdCard(String idCard) {
@@ -31,11 +31,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤ÊÖ»úºÅÂë
+	 * @Title: éªŒè¯æ‰‹æœºå·ç 
 	 * @Description: TODO
 	 * @param @param mobile
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkMobile(String mobile) {
@@ -44,11 +44,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤¹Ì»°
+	 * @Title: éªŒè¯å›ºè¯
 	 * @Description: TODO
 	 * @param @param phone
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkPhone(String phone) {
@@ -57,11 +57,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤ÕûÊı
+	 * @Title: éªŒè¯æ•´æ•°
 	 * @Description: TODO
 	 * @param @param digit
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkDigit(String digit) {
@@ -70,11 +70,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤¸¡µãÊı
+	 * @Title: éªŒè¯æµ®ç‚¹æ•°
 	 * @Description: TODO
 	 * @param @param decimals
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkDecimals(String decimals) {
@@ -83,11 +83,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤¿Õ°××Ö·û
+	 * @Title: éªŒè¯ç©ºç™½å­—ç¬¦
 	 * @Description: TODO
 	 * @param @param blankSpace
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkBlankSpace(String blankSpace) {
@@ -96,11 +96,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤ÖĞ¹ã
+	 * @Title: éªŒè¯ä¸­å¹¿
 	 * @Description: TODO
 	 * @param @param chinese
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkChinese(String chinese) {
@@ -109,11 +109,11 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤ÈÕÆÚ
+	 * @Title: éªŒè¯æ—¥æœŸ
 	 * @Description: TODO
-	 * @param @param birthday ÈÕÆÚ£¬¸ñÊ½£º1992-09-03£¬»ò1992.09.03
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @param birthday æ—¥æœŸï¼Œæ ¼å¼ï¼š1992-09-03ï¼Œæˆ–1992.09.03
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkBirthday(String birthday) {
@@ -122,12 +122,12 @@ public class RegexUtils {
 	}
 
 	/**
-	 * @Title: ÑéÖ¤URL
-	 * @Description: ¸ñÊ½£ºhttp://blog.csdn.net:80/xyang81/article/details/7705960?
-	 *               »ò http://www.csdn.net:80
+	 * @Title: éªŒè¯URL
+	 * @Description: æ ¼å¼ï¼šhttp://blog.csdn.net:80/xyang81/article/details/7705960?
+	 *               æˆ– http://www.csdn.net:80
 	 * @param @param url
-	 * @param @return Éè¶¨ÎÄ¼ş
-	 * @return boolean ·µ»ØÀàĞÍ
+	 * @param @return è®¾å®šæ–‡ä»¶
+	 * @return boolean è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean checkURL(String url) {
@@ -135,11 +135,11 @@ public class RegexUtils {
 		return Pattern.matches(regex, url);
 	}
 	/**
-	  * @Title: Æ¥ÅäÖĞ¹úÓÊÕş±àÂë
+	  * @Title: åŒ¹é…ä¸­å›½é‚®æ”¿ç¼–ç 
 	  * @Description: TODO
 	  * @param @param postcode
-	  * @param @return    Éè¶¨ÎÄ¼ş
-	  * @return boolean    ·µ»ØÀàĞÍ
+	  * @param @return    è®¾å®šæ–‡ä»¶
+	  * @return boolean    è¿”å›ç±»å‹
 	  * @throws
 	 */
 	public static boolean checkPostcode(String postcode) {
@@ -147,11 +147,11 @@ public class RegexUtils {
 		return Pattern.matches(regex, postcode);
 	}
 	/**
-	  * @Title: Æ¥ÅäIPµØÖ·(¼òµ¥Æ¥Åä£¬¸ñÊ½£¬Èç£º192.168.1.1£¬127.0.0.1£¬Ã»ÓĞÆ¥ÅäIP¶ÎµÄ´óĞ¡)
+	  * @Title: åŒ¹é…IPåœ°å€(ç®€å•åŒ¹é…ï¼Œæ ¼å¼ï¼Œå¦‚ï¼š192.168.1.1ï¼Œ127.0.0.1ï¼Œæ²¡æœ‰åŒ¹é…IPæ®µçš„å¤§å°)
 	  * @Description: TODO
 	  * @param @param ipAddress
-	  * @param @return    Éè¶¨ÎÄ¼ş
-	  * @return boolean    ·µ»ØÀàĞÍ
+	  * @param @return    è®¾å®šæ–‡ä»¶
+	  * @return boolean    è¿”å›ç±»å‹
 	  * @throws
 	  */
 	public static boolean checkIpAddress(String ipAddress) { 

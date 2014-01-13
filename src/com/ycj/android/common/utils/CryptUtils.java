@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -7,15 +7,15 @@ import java.security.NoSuchProviderException;
 
 public class CryptUtils {
 
-	/** Ä¬ÈÏ×Ö·û¼¯£¨UTF-8£© */
+	/** é»˜è®¤å­—ç¬¦é›†ï¼ˆUTF-8ï¼‰ */
 	public static final String DEFAULT_ENCODING = "UTF-8";
-	/** ¼ÓÃÜ·½·¨£ºMD5 */
+	/** åŠ å¯†æ–¹æ³•ï¼šMD5 */
 	public static final String MD5 = "MD5";
-	/** ¼ÓÃÜ·½·¨£ºSHA */
+	/** åŠ å¯†æ–¹æ³•ï¼šSHA */
 	public static final String SHA = "SHA";
 	
 	/** 
-	 * byte[] -> Ê®Áù½øÖÆ×Ö·û´® (Ğ¡Ğ´) 
+	 * byte[] -> åå…­è¿›åˆ¶å­—ç¬¦ä¸² (å°å†™) 
 	 * @param bytes
 	 * @return
 	 */
@@ -24,7 +24,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * byte[] -> Ê®Áù½øÖÆ×Ö·û´® 
+	 * byte[] -> åå…­è¿›åˆ¶å­—ç¬¦ä¸² 
 	 * @param bytes
 	 * @param capital
 	 * @return
@@ -39,7 +39,7 @@ public class CryptUtils {
 	}
 	
 	/**
-	 *  byte -> Ê®Áù½øÖÆË«×Ö·û (Ğ¡Ğ´)
+	 *  byte -> åå…­è¿›åˆ¶åŒå­—ç¬¦ (å°å†™)
 	 * @param b
 	 * @return
 	 */
@@ -48,7 +48,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * byte -> Ê®Áù½øÖÆË«×Ö·û 
+	 * byte -> åå…­è¿›åˆ¶åŒå­—ç¬¦ 
 	 * @param b
 	 * @param capital
 	 * @return
@@ -62,7 +62,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * °ë byte -> Ê®Áù½øÖÆµ¥×Ö·û (Ğ¡Ğ´) 
+	 * åŠ byte -> åå…­è¿›åˆ¶å•å­—ç¬¦ (å°å†™) 
 	 * @param b
 	 * @return
 	 */
@@ -71,7 +71,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * °ë byte -> Ê®Áù½øÖÆµ¥×Ö·û 
+	 * åŠ byte -> åå…­è¿›åˆ¶å•å­—ç¬¦ 
 	 * @param b
 	 * @param capital
 	 * @return
@@ -82,7 +82,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * Ê®Áù½øÖÆ×Ö·û´® -> byte[]
+	 * åå…­è¿›åˆ¶å­—ç¬¦ä¸² -> byte[]
 	 * @param str
 	 * @return
 	 */
@@ -103,7 +103,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * Ê®Áù½øÖÆË«×Ö·û -> byte
+	 * åå…­è¿›åˆ¶åŒå­—ç¬¦ -> byte
 	 * @param ch
 	 * @param cl
 	 * @return
@@ -116,7 +116,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * Ê®Áù½øÖÆµ¥×Ö·û -> °ë byte 
+	 * åå…­è¿›åˆ¶å•å­—ç¬¦ -> åŠ byte 
 	 * @param c
 	 * @return
 	 */
@@ -126,7 +126,7 @@ public class CryptUtils {
 	}
 	
 	/** 
-	 * Ê¹ÓÃÄ¬ÈÏ×Ö·û¼¯¶Ô×Ö·û´®±àÂëºóÔÙ½øĞĞ MD5 ¼ÓÃÜ 
+	 * ä½¿ç”¨é»˜è®¤å­—ç¬¦é›†å¯¹å­—ç¬¦ä¸²ç¼–ç åå†è¿›è¡Œ MD5 åŠ å¯† 
 	 * @param input
 	 * @return
 	 */
@@ -135,7 +135,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * Ê¹ÓÃÖ¸¶¨×Ö·û¼¯¶Ô×Ö·û´®±àÂëºóÔÙ½øĞĞ MD5 ¼ÓÃÜ 
+	 * ä½¿ç”¨æŒ‡å®šå­—ç¬¦é›†å¯¹å­—ç¬¦ä¸²ç¼–ç åå†è¿›è¡Œ MD5 åŠ å¯† 
 	 * @param input
 	 * @param charset
 	 * @return
@@ -145,7 +145,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * MD5 ¼ÓÃÜ 
+	 * MD5 åŠ å¯† 
 	 * @param input
 	 * @return
 	 */
@@ -155,7 +155,7 @@ public class CryptUtils {
 	}
 	
 	/** 
-	 * »ñÈ¡ MD5 ¼ÓÃÜÕªÒª¶ÔÏó 
+	 * è·å– MD5 åŠ å¯†æ‘˜è¦å¯¹è±¡ 
 	 * @return
 	 */
 	public final static MessageDigest getMd5Digest() {
@@ -163,7 +163,7 @@ public class CryptUtils {
 	}
 	
 	/** 
-	 * »ñÈ¡ SHA ¼ÓÃÜÕªÒª¶ÔÏó 
+	 * è·å– SHA åŠ å¯†æ‘˜è¦å¯¹è±¡ 
 	 * @return
 	 */
 	public final static MessageDigest getShaDigest() {
@@ -171,7 +171,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * »ñÈ¡ SHA-{X} ¼ÓÃÜÕªÒª¶ÔÏó£¬ÆäÖĞ {X} ÓÉ version ²ÎÊıÖ¸¶¨ 
+	 * è·å– SHA-{X} åŠ å¯†æ‘˜è¦å¯¹è±¡ï¼Œå…¶ä¸­ {X} ç”± version å‚æ•°æŒ‡å®š 
 	 * @param version
 	 * @return
 	 */
@@ -180,7 +180,7 @@ public class CryptUtils {
 		return getDigest(algorithm);
 	}
 	/** 
-	 * ¸ù¾İ¼ÓÃÜ·½·¨Ãû³Æ»ñÈ¡¼ÓÃÜÕªÒª¶ÔÏó 
+	 * æ ¹æ®åŠ å¯†æ–¹æ³•åç§°è·å–åŠ å¯†æ‘˜è¦å¯¹è±¡ 
 	 * @param algorithm
 	 * @return
 	 */
@@ -193,7 +193,7 @@ public class CryptUtils {
 	}
 	
 	/** 
-	 * ¸ù¾İ¼ÓÃÜ·½·¨Ãû³ÆºÍÌá¹©Õß»ñÈ¡¼ÓÃÜÕªÒª¶ÔÏó 
+	 * æ ¹æ®åŠ å¯†æ–¹æ³•åç§°å’Œæä¾›è€…è·å–åŠ å¯†æ‘˜è¦å¯¹è±¡ 
 	 * @param algorithm
 	 * @param provider
 	 * @return
@@ -210,7 +210,7 @@ public class CryptUtils {
 	}
 	
 	/** 
-	 * Ê¹ÓÃÖ¸¶¨Ëã·¨¶Ô×Ö·û´®¼ÓÃÜ 
+	 * ä½¿ç”¨æŒ‡å®šç®—æ³•å¯¹å­—ç¬¦ä¸²åŠ å¯† 
 	 * @param algorithm
 	 * @param input
 	 * @return
@@ -220,7 +220,7 @@ public class CryptUtils {
 	}
 
 	/** 
-	 * Ê¹ÓÃÖ¸¶¨×Ö·û¼¯¶Ô×Ö·û´®±àÂëºóÔÙ½øĞĞ SHA-{X} ¼ÓÃÜ£¬×Ö·û´®µÄ±àÂëÓÉ charset ²ÎÊıÖ¸¶¨ 
+	 * ä½¿ç”¨æŒ‡å®šå­—ç¬¦é›†å¯¹å­—ç¬¦ä¸²ç¼–ç åå†è¿›è¡Œ SHA-{X} åŠ å¯†ï¼Œå­—ç¬¦ä¸²çš„ç¼–ç ç”± charset å‚æ•°æŒ‡å®š 
 	 * @param algorithm
 	 * @param input
 	 * @param charset
@@ -238,7 +238,7 @@ public class CryptUtils {
 		}
 	}
 
-	/** Ê¹ÓÃÖ¸¶¨Ëã·¨¶Ô byte[] ¼ÓÃÜ */
+	/** ä½¿ç”¨æŒ‡å®šç®—æ³•å¯¹ byte[] åŠ å¯† */
 	public final static byte[] encode(MessageDigest algorithm, byte[] input) {
 		return algorithm.digest(input);
 	}

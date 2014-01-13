@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,8 +12,8 @@ public class DateUtils {
 	
 	/**
 	 * @Title: stringDate
-	 * @Description: TODO(°ÑÈÕÆÚ×ª»»Îªyyyy-MM-dd¸ñÊ½×Ö·û´®)
-	 * @return String    ·µ»ØÀàĞÍ
+	 * @Description: TODO(æŠŠæ—¥æœŸè½¬æ¢ä¸ºyyyy-MM-ddæ ¼å¼å­—ç¬¦ä¸²)
+	 * @return String    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static String stringDate(Date date){
@@ -25,8 +25,8 @@ public class DateUtils {
 	}
 	/**
 	 * @Title: stringDate
-	 * @Description: TODO(°ÑÈÕÆÚ×ª»»ÎªÖ¸¶¨¸ñÊ½×Ö·û´®)
-	 * @return String    ·µ»ØÀàĞÍ
+	 * @Description: TODO(æŠŠæ—¥æœŸè½¬æ¢ä¸ºæŒ‡å®šæ ¼å¼å­—ç¬¦ä¸²)
+	 * @return String    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static String stringDate(Date date,String format){
@@ -39,8 +39,8 @@ public class DateUtils {
 	}
 	/**
 	 * @Title: dateString
-	 * @Description: TODO(½«¹Ì¶¨¸ñÊ½×Ö·û´®×ª»¯Îªyyyy-MM-dd)
-	 * @return Date    ·µ»ØÀàĞÍ
+	 * @Description: TODO(å°†å›ºå®šæ ¼å¼å­—ç¬¦ä¸²è½¬åŒ–ä¸ºyyyy-MM-dd)
+	 * @return Date    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static Date dateString(String strDate){
@@ -51,14 +51,14 @@ public class DateUtils {
 		}
 	}
 	/**
-	 * »ñÈ¡ÏµÍ³Ê±¼ä
+	 * è·å–ç³»ç»Ÿæ—¶é—´
 	 * @param format
 	 * @return
 	 */
 	public static String getNowTime(String format) {
 		String result = "";
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
-		Date curDate = new Date(System.currentTimeMillis()); // »ñÈ¡µ±Ç°Ê±¼ä
+		Date curDate = new Date(System.currentTimeMillis()); // è·å–å½“å‰æ—¶é—´
 		result = sdf.format(curDate);
 		return result;
 	}

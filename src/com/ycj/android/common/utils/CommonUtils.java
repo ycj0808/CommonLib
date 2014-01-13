@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -7,19 +7,19 @@ import java.util.UUID;
 
 /**
  * @ClassName: CommonUtils
- * @Description: TODO(¹«¹²¹¤¾ßÀà)
+ * @Description: TODO(å…¬å…±å·¥å…·ç±»)
  * @author yangchj
- * @date 2013-9-15 ÏÂÎç9:16:50
- * 1.¶ÔMapµÄ²Ù×÷
- * 2.¶Ô×Ö·û´®ÓëÊıÖµĞÍÊı¾İ×ª»»
- * 3.»ñÈ¡UUID
+ * @date 2013-9-15 ä¸‹åˆ9:16:50
+ * 1.å¯¹Mapçš„æ“ä½œ
+ * 2.å¯¹å­—ç¬¦ä¸²ä¸æ•°å€¼å‹æ•°æ®è½¬æ¢
+ * 3.è·å–UUID
  */
 public class CommonUtils {
 
 	/**
 	 * @Title: mapHasValue
-	 * @Description: TODO(ÅĞ¶ÏMapÖĞÊÇ·ñ´æÔÚKey)
-	 * @return boolean    ·µ»ØÀàĞÍ
+	 * @Description: TODO(åˆ¤æ–­Mapä¸­æ˜¯å¦å­˜åœ¨Key)
+	 * @return boolean    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public static boolean mapHasValue(Map paramMap, String key){
@@ -31,8 +31,8 @@ public class CommonUtils {
 	}
 	/**
 	 * @Title: mapEquValue
-	 * @Description: TODO(ÅĞ¶ÏMapÖĞKeyÖµµÈÓÚValue)
-	 * @return boolean    ·µ»ØÀàĞÍ
+	 * @Description: TODO(åˆ¤æ–­Mapä¸­Keyå€¼ç­‰äºValue)
+	 * @return boolean    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public boolean mapEquValue(Map paramMap, String key, String value){
@@ -44,8 +44,8 @@ public class CommonUtils {
 	}
 	/**
 	 * @Title: mapUnequValue
-	 * @Description: TODO(ÅĞ¶ÏMapÖĞKeyÖµ²»µÈÓÚValue)
-	 * @return boolean    ·µ»ØÀàĞÍ
+	 * @Description: TODO(åˆ¤æ–­Mapä¸­Keyå€¼ä¸ç­‰äºValue)
+	 * @return boolean    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public boolean mapUnequValue(Map paramMap, String key, String value){
@@ -57,8 +57,8 @@ public class CommonUtils {
 	}
 	/**
 	 * @Title: getValByKey
-	 * @Description: TODO(È¡MapÖĞµÄÖµ)
-	 * @return String    ·µ»ØÀàĞÍ
+	 * @Description: TODO(å–Mapä¸­çš„å€¼)
+	 * @return String    è¿”å›ç±»å‹
 	 * @throws
 	 */
 	public String getValByKey(Map paramMap, String key) {
@@ -66,13 +66,13 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®×ª»»ÎªÕûÊı
+	 * å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•´æ•°
 	 * 
 	 * @param value
-	 *            ĞèÒª×ª»»µÄ×Ö·û´®
+	 *            éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 *            ×ª´ï»»Ê§°ÜÊ±µÄÌæ´úÖµ
-	 * @return ×ª»»ºóµÄÕûÊı
+	 *            è½¬è¾¾æ¢å¤±è´¥æ—¶çš„æ›¿ä»£å€¼
+	 * @return è½¬æ¢åçš„æ•´æ•°
 	 */
 	public static int strToInt(String value, int defaultValue) {
 		try {
@@ -83,13 +83,13 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®×ª»»Îª³¤ÕûÊı
+	 * å­—ç¬¦ä¸²è½¬æ¢ä¸ºé•¿æ•´æ•°
 	 * 
 	 * @param value
-	 *            ĞèÒª×ª»»µÄ×Ö·û´®
+	 *            éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 *            ×ª´ï»»Ê§°ÜÊ±µÄÌæ´úÖµ
-	 * @return ×ª»»ºóµÄÕûÊı
+	 *            è½¬è¾¾æ¢å¤±è´¥æ—¶çš„æ›¿ä»£å€¼
+	 * @return è½¬æ¢åçš„æ•´æ•°
 	 */
 	public static long strToInt(String value, long defaultValue) {
 		try {
@@ -100,13 +100,13 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * ×ª»»16½øÖÆ×Ö·û´®ÎªÊı×Ö
+	 * è½¬æ¢16è¿›åˆ¶å­—ç¬¦ä¸²ä¸ºæ•°å­—
 	 * 
 	 * @param value
-	 *            ĞèÒª×ª»»µÄ×Ö·û´®
+	 *            éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 *            ×ª´ï»»Ê§°ÜÊ±µÄÌæ´úÖµ
-	 * @return ×ª»»ºóµÄÕûÊı
+	 *            è½¬è¾¾æ¢å¤±è´¥æ—¶çš„æ›¿ä»£å€¼
+	 * @return è½¬æ¢åçš„æ•´æ•°
 	 */
 	public static int hexToInt(String value, int defaultValue) {
 		try {
@@ -117,13 +117,13 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * ×ª»»16½øÖÆ×Ö·û´®Îª³¤Êı×Ö
+	 * è½¬æ¢16è¿›åˆ¶å­—ç¬¦ä¸²ä¸ºé•¿æ•°å­—
 	 * 
 	 * @param value
-	 *            ĞèÒª×ª»»µÄ×Ö·û´®
+	 *            éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 *            ×ª´ï»»Ê§°ÜÊ±µÄÌæ´úÖµ
-	 * @return ×ª»»ºóµÄÕûÊı
+	 *            è½¬è¾¾æ¢å¤±è´¥æ—¶çš„æ›¿ä»£å€¼
+	 * @return è½¬æ¢åçš„æ•´æ•°
 	 */
 	public static long hexToInt(String value, long defaultValue) {
 		try {
@@ -134,13 +134,13 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * ×ª»»Îª¸¡µãÊı×Ö
+	 * è½¬æ¢ä¸ºæµ®ç‚¹æ•°å­—
 	 * 
 	 * @param value
-	 *            ĞèÒª×ª»»µÄ×Ö·û´®
+	 *            éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 *            ×ª´ï»»Ê§°ÜÊ±µÄÌæ´úÖµ
-	 * @return ×ª»»ºóµÄÕûÊı
+	 *            è½¬è¾¾æ¢å¤±è´¥æ—¶çš„æ›¿ä»£å€¼
+	 * @return è½¬æ¢åçš„æ•´æ•°
 	 */
 	public static float strToFloat(String value, float defaultValue) {
 		try {
@@ -151,13 +151,13 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * ×ª»»Îª¸¡µãÊı×Ö
+	 * è½¬æ¢ä¸ºæµ®ç‚¹æ•°å­—
 	 * 
 	 * @param value
-	 *            ĞèÒª×ª»»µÄ×Ö·û´®
+	 *            éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
 	 * @param defaultValue
-	 *            ×ª´ï»»Ê§°ÜÊ±µÄÌæ´úÖµ
-	 * @return ×ª»»ºóµÄÕûÊı
+	 *            è½¬è¾¾æ¢å¤±è´¥æ—¶çš„æ›¿ä»£å€¼
+	 * @return è½¬æ¢åçš„æ•´æ•°
 	 */
 	public static double strToDouble(String value, double defaultValue) {
 		try {
@@ -168,16 +168,16 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * »ñµÃËæ»úµÄGUID
+	 * è·å¾—éšæœºçš„GUID
 	 * 
-	 * @return ·µ»ØGUID
+	 * @return è¿”å›GUID
 	 */
 	public static String getGUID() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 	
 	/**
-	 * ²úÉúnÎ»Î±Ëæ»úÊı(n×î´óÖµÎª128)
+	 * äº§ç”Ÿnä½ä¼ªéšæœºæ•°(næœ€å¤§å€¼ä¸º128)
 	 * 
 	 * @param strLength
 	 * @return

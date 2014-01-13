@@ -1,4 +1,4 @@
-package com.ycj.android.common.utils;
+ï»¿package com.ycj.android.common.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -6,11 +6,11 @@ import android.net.NetworkInfo;
 
 public class NetUtils {
 	/**
-	  * @Title: ÅĞ¶ÏÊÇ·ñÓĞÍøÂçÁ¬½Ó
+	  * @Title: åˆ¤æ–­æ˜¯å¦æœ‰ç½‘ç»œè¿æ¥
 	  * @Description: TODO
 	  * @param     context
-	  * @param     Éè¶¨ÎÄ¼ş
-	  * @return boolean    ·µ»ØÀàĞÍ
+	  * @param     è®¾å®šæ–‡ä»¶
+	  * @return boolean    è¿”å›ç±»å‹
 	  * @throws
 	  */
 	public static boolean isNetWorkConnected(Context context){
@@ -24,11 +24,11 @@ public class NetUtils {
 		return false;
 	}
 	/**
-	  * @Title: ÅĞ¶ÏWIFIÍøÂçÊÇ·ñ¿ÉÓÃ
+	  * @Title: åˆ¤æ–­WIFIç½‘ç»œæ˜¯å¦å¯ç”¨
 	  * @Description: TODO
 	  * @param     context
-	  * @param     Éè¶¨ÎÄ¼ş
-	  * @return boolean    ·µ»ØÀàĞÍ
+	  * @param     è®¾å®šæ–‡ä»¶
+	  * @return boolean    è¿”å›ç±»å‹
 	  * @throws
 	  */
 	public static boolean isWifiConnected(Context context) {  
@@ -44,11 +44,11 @@ public class NetUtils {
 	    return false;  
 	}
 	/**
-	  * @Title: ÅĞ¶ÏMOBILEÍøÂçÊÇ·ñ¿ÉÓÃ
+	  * @Title: åˆ¤æ–­MOBILEç½‘ç»œæ˜¯å¦å¯ç”¨
 	  * @Description: TODO
 	  * @param @param context
-	  * @param @return    Éè¶¨ÎÄ¼ş
-	  * @return boolean    ·µ»ØÀàĞÍ
+	  * @param @return    è®¾å®šæ–‡ä»¶
+	  * @return boolean    è¿”å›ç±»å‹
 	  * @throws
 	 */
 	public static boolean isMobileConnected(Context context) {  
@@ -64,12 +64,12 @@ public class NetUtils {
 	    return false;  
 	}
 	/**
-	  * @Title: »ñÈ¡µ±Ç°ÍøÂçÁ¬½ÓµÄÀàĞÍĞÅÏ¢
-	  * »ñÈ¡µ±Ç°µÄÍøÂç×´Ì¬  -1£ºÃ»ÓĞÍøÂç  1£ºWIFIÍøÂç2£ºwapÍøÂç3£ºnetÍøÂç
+	  * @Title: è·å–å½“å‰ç½‘ç»œè¿æ¥çš„ç±»å‹ä¿¡æ¯
+	  * è·å–å½“å‰çš„ç½‘ç»œçŠ¶æ€  -1ï¼šæ²¡æœ‰ç½‘ç»œ  1ï¼šWIFIç½‘ç»œ2ï¼šwapç½‘ç»œ3ï¼šnetç½‘ç»œ
 	  * @Description: TODO
 	  * @param @param context
-	  * @param @return    Éè¶¨ÎÄ¼ş
-	  * @return int    ·µ»ØÀàĞÍ
+	  * @param @return    è®¾å®šæ–‡ä»¶
+	  * @return int    è¿”å›ç±»å‹
 	  * @throws
 	  */
 	public static int getConnectedType(Context context) {  

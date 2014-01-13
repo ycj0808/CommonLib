@@ -62,4 +62,16 @@ public class DateUtils {
 		result = sdf.format(curDate);
 		return result;
 	}
+	/**
+	 * 将long类型的时间转化为日期类型的字符串
+	 * @param time
+	 * @return
+	 */
+	public static String getDateFromLongTime(long time){
+		String result="";
+		SimpleDateFormat sdf= new SimpleDateFormat(DEFAULT_DATETIME_FORMAT);
+		Date date=new Date(time);
+		result=sdf.format(date);
+		return result;
+	}
 }

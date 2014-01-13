@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpResponse;
@@ -58,7 +59,7 @@ public class HttpUtils {
             if (code == 200) { 
             	result = EntityUtils.toString(httpResponse.getEntity()); 
             }
-            result = EntityUtils.toString(httpResponse.getEntity()); 
+            //result = EntityUtils.toString(httpResponse.getEntity()); 
             
 		}catch(ConnectTimeoutException e){//超时异常
 			e.printStackTrace();
@@ -103,10 +104,10 @@ public class HttpUtils {
 			for (String key : map.keySet()) {
 				System.out.println(key + "--->" + map.get(key));
 			}
-			int code=conn.getResponseCode();
-			if(code==201){
-				result=conn.getHeaderField("jsessionid");
-			}
+//			int code=conn.getResponseCode();
+//			if(code==201){
+//				result=conn.getHeaderField("jsessionid");
+//			}
 			// 定义BufferedReader输入流来读取URL的响应
 			in = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
@@ -130,6 +131,69 @@ public class HttpUtils {
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * 向指定URL发送GET方法的请求
+	 */
+	public static Map<String,Object> sendLoginGet(String url, String params) {
+		String result = "fail";
+		String jsessionid="";
+		String fail_info="";
+		Map<String,Object> map=new HashMap<String, Object>();
+		BufferedReader in = null;
+		try {
+			String urlName = url + "?" + params;
+			URL realUrl = new URL(urlName);
+			// 打开和URL之间的连接
+			HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
+			// 设置通用的请求属性
+			conn.setRequestProperty("accept", "*/*");
+			conn.setRequestProperty("connection", "Keep-Alive");
+			conn.setRequestProperty("user-agent",
+					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
+			// 建立实际的连接
+			conn.connect();
+			// 获取所有响应头字段
+//			Map<String, List<String>> map = conn.getHeaderFields();
+			// 遍历所有的响应头字段
+//			for (String key : map.keySet()) {
+//				System.out.println(key + "--->" + map.get(key));
+//			}
+			int code=conn.getResponseCode();
+			if(code==201){
+				result="success";
+				jsessionid=conn.getHeaderField("jsessionid");
+				fail_info="登陆成功";
+			}else if(code==401){
+				fail_info="用户名或密码错误";
+			}
+			// 定义BufferedReader输入流来读取URL的响应
+//			in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+//			String line;
+//			while ((line = in.readLine()) != null) {
+//				result += "\n" + line;
+//			}
+			LogUtils.i(result);
+		} catch (Exception e) {
+			System.out.println("发送GET请求出现异常！" + e);
+			fail_info="请求异常!";
+			e.printStackTrace();
+		}
+		// 使用finally块来关闭输入流
+		finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+		map.put("result", result);
+		map.put("fail_info", fail_info);
+		map.put("jsessionid", jsessionid);
+		return map;
 	}
 	/**
 	 * 向指定URL发送POST方法的请求  

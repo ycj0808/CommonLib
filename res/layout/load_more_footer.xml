@@ -15,8 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
--->
+ */-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/load_more_footer"
     android:layout_width="fill_parent"
@@ -41,8 +40,7 @@
         android:padding="3dp"
         android:text="@string/load_more_post"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/dark_slate_gray" />
-    -->
+        android:textColor="@color/dark_slate_gray" />-->
 
     <ProgressBar
         android:id="@+id/load_more_progressBar"

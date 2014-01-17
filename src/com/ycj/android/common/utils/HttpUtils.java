@@ -64,10 +64,13 @@ public class HttpUtils {
             //result = EntityUtils.toString(httpResponse.getEntity()); 
             
 		}catch(ConnectTimeoutException e){//超时异常
+			result="超时";
 			e.printStackTrace();
 		}catch(ClientProtocolException e){//不符合http协议
+			result="不符合http协议";
 			 e.printStackTrace(); 
 		}catch(IOException e){//响应异常 
+			result="响应异常";
 			 e.printStackTrace(); 
 		}finally{
 			httpClient.getConnectionManager().shutdown();
@@ -98,6 +101,7 @@ public class HttpUtils {
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
+			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			// 建立实际的连接
 			conn.connect();
 			// 获取所有响应头字段

@@ -92,4 +92,28 @@ public class JsonUtils {
 		}
 		return list;
 	}
+	
+	public static List<Map<String,Object>> getListMaps(JSONObject obj,String key){
+		List<Map<String,Object>> list=new ArrayList<Map<String,Object>>();
+		try {
+			JSONArray jsonArray=obj.getJSONArray(key);
+			for(int i=0;i<jsonArray.length();i++){
+				org.json.JSONObject jsonObj=jsonArray.getJSONObject(i);
+				Map<String,Object> map=new HashMap<String, Object>();
+				Iterator<String> iterator=jsonObj.keys();
+				while(iterator.hasNext()){
+					String jsonKey=iterator.next();
+					Object jsonValue=jsonObj.get(jsonKey);
+					if(jsonValue==null){
+						jsonValue="";
+					}
+					map.put(jsonKey, jsonValue);
+				}
+				list.add(map);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

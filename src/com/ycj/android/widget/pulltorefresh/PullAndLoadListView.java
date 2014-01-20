@@ -42,6 +42,8 @@ public class PullAndLoadListView extends PullToRefreshListView {
 	private RelativeLayout mFooterView;
 	// private TextView mLabLoadMore;
 	private ProgressBar mProgressBarLoadMore;
+	
+	public int selectId=0;
 
 	public PullAndLoadListView(Context context) { super(context);
 	  initComponent(context); }
@@ -93,15 +95,16 @@ public class PullAndLoadListView extends PullToRefreshListView {
 			}
 
 			boolean loadMore = firstVisibleItem + visibleItemCount >= totalItemCount;
-
+			selectId=firstVisibleItem;
 			if (!mIsLoadingMore && loadMore && mRefreshState != REFRESHING
 					&& mCurrentScrollState != SCROLL_STATE_IDLE) {
 				mProgressBarLoadMore.setVisibility(View.VISIBLE);
 				// mLabLoadMore.setVisibility(View.VISIBLE);
 				mIsLoadingMore = true;
 				onLoadMore();
+			}else if(!loadMore){
+				mProgressBarLoadMore.setVisibility(View.GONE);
 			}
-
 		}
 	}
 

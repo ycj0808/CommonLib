@@ -17,11 +17,16 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
+import com.google.gson.Gson;
 
 /**
  * @ClassName: HttpUtils
@@ -80,6 +85,54 @@ public class HttpUtils {
 		return result;
 	}
 	
+	/**
+	 * @Title: sendPostRequest
+	 * @Description: TODO(发送Post请求)
+	 * @return String    返回类型
+	 * @throws
+	 */
+	public static String sendPostRequestByJson(String url,Map<String,String> params){
+		String result="";
+//		List<NameValuePair> pairs = new ArrayList<NameValuePair>();// 存放请求参数
+//		if(params!=null && !params.isEmpty()){
+//			for(Map.Entry<String, String> entry:params.entrySet()){
+//				pairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+//			}
+//		}
+		HttpPost httpPost = new HttpPost(url); 
+		Gson gson=new Gson();
+		String jsonStr=gson.toJson(params);
+		//String jsonStr=JSONObject.
+		/////LogUtils.i(jsonStr);
+		//String jsonStr=J
+//		HttpClient httpClient=initHttp();
+//		HttpResponse httpResponse = null; 
+//		httpPost.setHeader("Content-Type", "application/json");
+//		httpPost.setHeader("Charset", "UTF-8");
+		StringEntity se;
+		try{
+			//设置httpPost请求参数 
+//            httpPost.setEntity(new UrlEncodedFormEntity(null, HTTP.UTF_8)); 
+//            httpResponse =httpClient.execute(httpPost); 
+//            result = EntityUtils.toString(httpResponse.getEntity()); 
+			se = new StringEntity(jsonStr);
+			httpPost.setHeader("Content-Type", "application/json");
+		    httpPost.addHeader("charset", HTTP.UTF_8);
+		    httpPost.setEntity(se);
+		    HttpResponse httpResponse=new DefaultHttpClient().execute(httpPost);
+		    result=EntityUtils.toString(httpResponse.getEntity());
+		}catch(ConnectTimeoutException e){//超时异常
+			result="超时";
+			e.printStackTrace();
+		}catch(ClientProtocolException e){//不符合http协议
+			result="不符合http协议";
+			 e.printStackTrace(); 
+		}catch(IOException e){//响应异常 
+			result="响应异常";
+			 e.printStackTrace(); 
+		}
+		return result;
+	}
 	public static HttpClient initHttp(){
 		HttpClient client = new DefaultHttpClient();
 		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, TIME_OUT_CONN_DELAY);//连接超时

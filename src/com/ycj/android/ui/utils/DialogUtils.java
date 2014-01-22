@@ -175,4 +175,20 @@ public class DialogUtils {
     	mDialog.setContentView(view);
     	return mDialog;
 	}
+	
+	/**
+	  * @Title:显示提示对话框 
+	  * @Description: TODO
+	  * @param     设定文件
+	  * @return void    返回类型
+	  * @throws
+	 */
+	public static void showAlertDialog(Context mContext,String content,String title,String txt_btn){
+		AlertDialog.Builder builder = new Builder(mContext); 
+		builder.setTitle(title);
+		builder.setPositiveButton(txt_btn,null); 
+//		builder.setIcon(android.R.drawable.ic_dialog_info); 
+		builder.setMessage(content);
+		builder.show();
+	}
 }

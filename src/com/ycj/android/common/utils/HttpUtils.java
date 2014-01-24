@@ -1,4 +1,5 @@
 ﻿package com.ycj.android.common.utils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,111 +36,117 @@ import com.google.gson.Gson;
  * @date 2013-9-15 下午9:20:09
  */
 public class HttpUtils {
-	
-	private static int TIME_OUT_SOCKET_DELAY=5*1000;//响应时间
-	private static int TIME_OUT_CONN_DELAY=5*1000;//连接时间
-	
+
+	private static int TIME_OUT_SOCKET_DELAY = 60 * 1000;// 响应时间
+	private static int TIME_OUT_CONN_DELAY = 60 * 1000;// 连接时间
+
 	/**
 	 * @Title: sendPostRequest
 	 * @Description: TODO(发送Post请求)
-	 * @return String    返回类型
+	 * @return String 返回类型
 	 * @throws
 	 */
-	public static String sendPostRequest(String url,Map<String,String> params){
-		String result="";
+	public static String sendPostRequest(String url, Map<String, String> params) {
+		String result = "";
 		List<NameValuePair> pairs = new ArrayList<NameValuePair>();// 存放请求参数
-		if(params!=null && !params.isEmpty()){
-			for(Map.Entry<String, String> entry:params.entrySet()){
-				pairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+		if (params != null && !params.isEmpty()) {
+			for (Map.Entry<String, String> entry : params.entrySet()) {
+				pairs.add(new BasicNameValuePair(entry.getKey(), entry
+						.getValue()));
 			}
 		}
-		HttpPost httpPost = new HttpPost(url); 
-		HttpClient httpClient=initHttp();
-		HttpResponse httpResponse = null; 
+		HttpPost httpPost = new HttpPost(url);
+		HttpClient httpClient = initHttp();
+		HttpResponse httpResponse = null;
 		httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
 		httpPost.setHeader("Charset", "UTF-8");
-		try{
-			//设置httpPost请求参数 
-            httpPost.setEntity(new UrlEncodedFormEntity(pairs, HTTP.UTF_8)); 
-            httpResponse =httpClient.execute(httpPost); 
-            int code=httpResponse.getStatusLine().getStatusCode();
-            if (code == 200) { 
-            	result = EntityUtils.toString(httpResponse.getEntity()); 
-            }else if(code==204){
-            	result="success";
-            }
-            //result = EntityUtils.toString(httpResponse.getEntity()); 
-            
-		}catch(ConnectTimeoutException e){//超时异常
-			result="超时";
+		try {
+			// 设置httpPost请求参数
+			httpPost.setEntity(new UrlEncodedFormEntity(pairs, HTTP.UTF_8));
+			httpResponse = httpClient.execute(httpPost);
+			int code = httpResponse.getStatusLine().getStatusCode();
+			if (code == 200) {
+				result = EntityUtils.toString(httpResponse.getEntity());
+			} else if (code == 204) {
+				result = "success";
+			}
+			// result = EntityUtils.toString(httpResponse.getEntity());
+
+		} catch (ConnectTimeoutException e) {// 超时异常
+			result = "超时";
 			e.printStackTrace();
-		}catch(ClientProtocolException e){//不符合http协议
-			result="不符合http协议";
-			 e.printStackTrace(); 
-		}catch(IOException e){//响应异常 
-			result="响应异常";
-			 e.printStackTrace(); 
-		}finally{
+		} catch (ClientProtocolException e) {// 不符合http协议
+			result = "不符合http协议";
+			e.printStackTrace();
+		} catch (IOException e) {// 响应异常
+			result = "响应异常";
+			e.printStackTrace();
+		} finally {
 			httpClient.getConnectionManager().shutdown();
 		}
 		return result;
 	}
-	
+
 	/**
 	 * @Title: sendPostRequest
 	 * @Description: TODO(发送Post请求)
-	 * @return String    返回类型
+	 * @return String 返回类型
 	 * @throws
 	 */
-	public static String sendPostRequestByJson(String url,Map<String,String> params){
-		String result="";
-//		List<NameValuePair> pairs = new ArrayList<NameValuePair>();// 存放请求参数
-//		if(params!=null && !params.isEmpty()){
-//			for(Map.Entry<String, String> entry:params.entrySet()){
-//				pairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
-//			}
-//		}
-		HttpPost httpPost = new HttpPost(url); 
-		Gson gson=new Gson();
-		String jsonStr=gson.toJson(params);
-		//String jsonStr=JSONObject.
-		/////LogUtils.i(jsonStr);
-		//String jsonStr=J
-//		HttpClient httpClient=initHttp();
-//		HttpResponse httpResponse = null; 
-//		httpPost.setHeader("Content-Type", "application/json");
-//		httpPost.setHeader("Charset", "UTF-8");
+	public static String sendPostRequestByJson(String url,
+			Map<String, String> params) {
+		String result = "";
+		// List<NameValuePair> pairs = new ArrayList<NameValuePair>();// 存放请求参数
+		// if(params!=null && !params.isEmpty()){
+		// for(Map.Entry<String, String> entry:params.entrySet()){
+		// pairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
+		// }
+		// }
+		HttpPost httpPost = new HttpPost(url);
+		Gson gson = new Gson();
+		String jsonStr = gson.toJson(params);
+		// String jsonStr=JSONObject.
+		// ///LogUtils.i(jsonStr);
+		// String jsonStr=J
+		// HttpClient httpClient=initHttp();
+		// HttpResponse httpResponse = null;
+		// httpPost.setHeader("Content-Type", "application/json");
+		// httpPost.setHeader("Charset", "UTF-8");
 		StringEntity se;
-		try{
-			//设置httpPost请求参数 
-//            httpPost.setEntity(new UrlEncodedFormEntity(null, HTTP.UTF_8)); 
-//            httpResponse =httpClient.execute(httpPost); 
-//            result = EntityUtils.toString(httpResponse.getEntity()); 
+		try {
+			// 设置httpPost请求参数
+			// httpPost.setEntity(new UrlEncodedFormEntity(null, HTTP.UTF_8));
+			// httpResponse =httpClient.execute(httpPost);
+			// result = EntityUtils.toString(httpResponse.getEntity());
 			se = new StringEntity(jsonStr);
 			httpPost.setHeader("Content-Type", "application/json");
-		    httpPost.addHeader("charset", HTTP.UTF_8);
-		    httpPost.setEntity(se);
-		    HttpResponse httpResponse=new DefaultHttpClient().execute(httpPost);
-		    result=EntityUtils.toString(httpResponse.getEntity());
-		}catch(ConnectTimeoutException e){//超时异常
-			result="超时";
+			httpPost.addHeader("charset", HTTP.UTF_8);
+			httpPost.setEntity(se);
+			HttpResponse httpResponse = new DefaultHttpClient()
+					.execute(httpPost);
+			result = EntityUtils.toString(httpResponse.getEntity());
+		} catch (ConnectTimeoutException e) {// 超时异常
+			result = "超时";
 			e.printStackTrace();
-		}catch(ClientProtocolException e){//不符合http协议
-			result="不符合http协议";
-			 e.printStackTrace(); 
-		}catch(IOException e){//响应异常 
-			result="响应异常";
-			 e.printStackTrace(); 
+		} catch (ClientProtocolException e) {// 不符合http协议
+			result = "不符合http协议";
+			e.printStackTrace();
+		} catch (IOException e) {// 响应异常
+			result = "响应异常";
+			e.printStackTrace();
 		}
 		return result;
 	}
-	public static HttpClient initHttp(){
+
+	public static HttpClient initHttp() {
 		HttpClient client = new DefaultHttpClient();
-		client.getParams().setIntParameter(HttpConnectionParams.CONNECTION_TIMEOUT, TIME_OUT_CONN_DELAY);//连接超时
-		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT, TIME_OUT_SOCKET_DELAY);//响应超时
+		client.getParams().setIntParameter(
+				HttpConnectionParams.CONNECTION_TIMEOUT, TIME_OUT_CONN_DELAY);// 连接超时
+		client.getParams().setIntParameter(HttpConnectionParams.SO_TIMEOUT,
+				TIME_OUT_SOCKET_DELAY);// 响应超时
 		return client;
 	}
-	
+
 	/**
 	 * 向指定URL发送GET方法的请求
 	 */
@@ -150,13 +157,15 @@ public class HttpUtils {
 			String urlName = url + "?" + params;
 			URL realUrl = new URL(urlName);
 			// 打开和URL之间的连接
-			HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
+			HttpURLConnection conn = (HttpURLConnection) realUrl
+					.openConnection();
 			// 设置通用的请求属性
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+			conn.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
 			// 建立实际的连接
 			conn.connect();
 			// 获取所有响应头字段
@@ -165,10 +174,10 @@ public class HttpUtils {
 			for (String key : map.keySet()) {
 				System.out.println(key + "--->" + map.get(key));
 			}
-//			int code=conn.getResponseCode();
-//			if(code==201){
-//				result=conn.getHeaderField("jsessionid");
-//			}
+			// int code=conn.getResponseCode();
+			// if(code==201){
+			// result=conn.getHeaderField("jsessionid");
+			// }
 			// 定义BufferedReader输入流来读取URL的响应
 			in = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
@@ -193,21 +202,22 @@ public class HttpUtils {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 向指定URL发送GET方法的请求
 	 */
-	public static Map<String,Object> sendLoginGet(String url, String params) {
+	public static Map<String, Object> sendLoginGet(String url, String params) {
 		String result = "fail";
-		String jsessionid="";
-		String fail_info="";
-		Map<String,Object> map=new HashMap<String, Object>();
+		String jsessionid = "";
+		String fail_info = "";
+		Map<String, Object> map = new HashMap<String, Object>();
 		BufferedReader in = null;
 		try {
 			String urlName = url + "?" + params;
 			URL realUrl = new URL(urlName);
 			// 打开和URL之间的连接
-			HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
+			HttpURLConnection conn = (HttpURLConnection) realUrl
+					.openConnection();
 			// 设置通用的请求属性
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
@@ -216,29 +226,30 @@ public class HttpUtils {
 			// 建立实际的连接
 			conn.connect();
 			// 获取所有响应头字段
-//			Map<String, List<String>> map = conn.getHeaderFields();
+			// Map<String, List<String>> map = conn.getHeaderFields();
 			// 遍历所有的响应头字段
-//			for (String key : map.keySet()) {
-//				System.out.println(key + "--->" + map.get(key));
-//			}
-			int code=conn.getResponseCode();
-			if(code==201){
-				result="success";
-				jsessionid=conn.getHeaderField("jsessionid");
-				fail_info="登陆成功";
-			}else if(code==401){
-				fail_info="用户名或密码错误";
+			// for (String key : map.keySet()) {
+			// System.out.println(key + "--->" + map.get(key));
+			// }
+			int code = conn.getResponseCode();
+			if (code == 201) {
+				result = "success";
+				jsessionid = conn.getHeaderField("jsessionid");
+				fail_info = "登陆成功";
+			} else if (code == 401) {
+				fail_info = "用户名或密码错误";
 			}
 			// 定义BufferedReader输入流来读取URL的响应
-//			in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-//			String line;
-//			while ((line = in.readLine()) != null) {
-//				result += "\n" + line;
-//			}
+			// in = new BufferedReader(new
+			// InputStreamReader(conn.getInputStream()));
+			// String line;
+			// while ((line = in.readLine()) != null) {
+			// result += "\n" + line;
+			// }
 			LogUtils.i(result);
 		} catch (Exception e) {
 			System.out.println("发送GET请求出现异常！" + e);
-			fail_info="请求异常!";
+			fail_info = "请求异常!";
 			e.printStackTrace();
 		}
 		// 使用finally块来关闭输入流
@@ -256,8 +267,9 @@ public class HttpUtils {
 		map.put("jsessionid", jsessionid);
 		return map;
 	}
+
 	/**
-	 * 向指定URL发送POST方法的请求  
+	 * 向指定URL发送POST方法的请求
 	 */
 	public static String sendPost(String url, String params) {
 		PrintWriter out = null;
@@ -272,7 +284,8 @@ public class HttpUtils {
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
-			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+			conn.setRequestProperty("Content-Type",
+					"application/x-www-form-urlencoded");
 			conn.setRequestProperty("Charset", "UTF-8");
 			// 发送POST请求必须设置如下两行
 			conn.setDoOutput(true);

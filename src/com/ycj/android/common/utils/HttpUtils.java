@@ -60,6 +60,8 @@ public class HttpUtils {
             int code=httpResponse.getStatusLine().getStatusCode();
             if (code == 200) { 
             	result = EntityUtils.toString(httpResponse.getEntity()); 
+            }else if(code==204){
+            	result="success";
             }
             //result = EntityUtils.toString(httpResponse.getEntity()); 
             

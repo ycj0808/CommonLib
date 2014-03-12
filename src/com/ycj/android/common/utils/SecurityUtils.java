@@ -9,6 +9,8 @@ import java.net.URLEncoder;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+import org.bouncycastle.util.encoders.UrlBase64;
+
 import android.annotation.SuppressLint;
 import android.util.Base64;
 
@@ -257,5 +259,9 @@ public class SecurityUtils {
 			stringBuilder.append(hv);
 		}
 		return stringBuilder.toString();
+	}
+	
+	public static String getBase64(String str){
+		return new String(UrlBase64.encode(str.getBytes()));
 	}
 }

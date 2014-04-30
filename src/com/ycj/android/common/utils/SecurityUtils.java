@@ -264,4 +264,8 @@ public class SecurityUtils {
 	public static String getBase64(String str){
 		return new String(UrlBase64.encode(str.getBytes()));
 	}
+	
+	public static String getDecryptBase64(String str){
+		return new String(UrlBase64.decode(str));
+	}
 }

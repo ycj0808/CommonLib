@@ -10,6 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
+
 /**
  * @ClassName: JsonUtils
  * @Description: TODO(json数据处理工具类)
@@ -115,5 +117,15 @@ public class JsonUtils {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	/**
+	 * Object对象转化为json字符串
+	 * @param object
+	 * @return
+	 */
+	public static String getJsonFormObject(Object object){
+		Gson gson=new Gson();
+		return gson.toJson(object);
 	}
 }

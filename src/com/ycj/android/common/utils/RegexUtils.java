@@ -39,7 +39,7 @@ public class RegexUtils {
 	 * @throws
 	 */
 	public static boolean checkMobile(String mobile) {
-		String regex = "(\\+\\d+)?1[3458]\\d{9}$";
+		String regex = "(\\+\\d+)?1[34578]\\d{9}$";
 		return Pattern.matches(regex, mobile);
 	}
 
